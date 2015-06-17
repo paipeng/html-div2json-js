@@ -4,19 +4,24 @@
 
 
 module.exports = {
-    convert: function (html, name) {
+    convert: function (html, name, row_offset) {
         var cheerio = require('cheerio');
         $ = cheerio.load(html);
-        return parserChilden($('#' + name).children());
+        return parserChilden($('#' + name).children(), row_offset);
     }
 };
 
 
-function parserChilden(divs) {
+function parserChilden(divs, row_offset) {
     //console.log("parserChilden " + divs.length);
     var json = [];
     var value = {};
+    var row = 0;
     divs.each(function (i, elem) {
+        if (row_offset !== undefined && row < row_offset) {
+            next;
+        }
+
         if ($(elem).children().length > 0) {
             json.push(parserChilden($(elem).children()));
         } else {
@@ -28,6 +33,7 @@ function parserChilden(divs) {
 
             }
         }
+        row++;
     });
     json.push(value);
     // console.log("json " + JSON.stringify(json));
