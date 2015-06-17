@@ -15,16 +15,16 @@ module.exports = {
 function parserChilden(divs) {
     //console.log("parserChilden " + divs.length);
     var json = [];
+    var value = {};
     divs.each(function (i, elem) {
         if ($(elem).children().length > 0) {
             json.push(parserChilden($(elem).children()));
         } else {
             // console.log("children: " + $(elem).attr('class') + " -> " + $(elem).html());
-            var value = {};
             value[$(elem).attr('class')] = $(elem).html()
-            json.push(value);
         }
     });
+    json.push(value);
     // console.log("json " + JSON.stringify(json));
     return json;
 }
