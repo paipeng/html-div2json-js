@@ -21,7 +21,12 @@ function parserChilden(divs) {
             json.push(parserChilden($(elem).children()));
         } else {
             // console.log("children: " + $(elem).attr('class') + " -> " + $(elem).html());
-            value[$(elem).attr('class')] = $(elem).html()
+            if (value[$(elem).attr('class')] === undefined) {
+                value[$(elem).attr('class')] = $(elem).html()
+            } else {
+                value[$(elem).attr('class') + i] = $(elem).html()
+
+            }
         }
     });
     json.push(value);
