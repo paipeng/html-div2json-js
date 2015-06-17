@@ -4,28 +4,27 @@
 
 
 module.exports = {
-    convert: function(html, name) {
+    convert: function (html, name) {
         var cheerio = require('cheerio');
         $ = cheerio.load(html);
-
         return parserChilden($('#' + name).children());
     }
 };
 
 
 function parserChilden(divs) {
-    console.log("parserChilden " + divs.length);
+    //console.log("parserChilden " + divs.length);
     var json = [];
-    divs.each(function(i, elem) {
+    divs.each(function (i, elem) {
         if ($(elem).children().length > 0) {
             json.push(parserChilden($(elem).children()));
         } else {
-            console.log("children: " + $(elem).attr('class') + " -> " + $(elem).html());
+            // console.log("children: " + $(elem).attr('class') + " -> " + $(elem).html());
             var value = {};
             value[$(elem).attr('class')] = $(elem).html()
             json.push(value);
         }
     });
-    console.log("json " + JSON.stringify(json));
+    // console.log("json " + JSON.stringify(json));
     return json;
 }
