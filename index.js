@@ -8,7 +8,7 @@ module.exports = {
         var cheerio = require('cheerio');
         $ = cheerio.load(html);
 
-        return parserChilden($('#' + div_name).children());
+        return parserChilden($('#' + name).children());
     }
 };
 
