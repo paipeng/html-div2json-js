@@ -1,6 +1,6 @@
 {
   "name": "html-div2json-js",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Convert html's div to json object",
   "main": "index.js",
   "scripts": {
