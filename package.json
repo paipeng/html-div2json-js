@@ -1,6 +1,6 @@
 {
   "name": "html-div2json-js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Convert html's div to json object",
   "main": "index.js",
   "scripts": {
@@ -17,5 +17,8 @@
     "type": "git",
     "url": "git://github.com/paipeng/html-div2json-js.git"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^0.19.0"
+  }
 }
