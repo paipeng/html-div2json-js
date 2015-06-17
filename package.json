@@ -13,5 +13,9 @@
     "div"
   ],
   "author": "Pai Peng",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/paipeng/html-div2json-js.git"
+  },
   "license": "MIT"
 }
